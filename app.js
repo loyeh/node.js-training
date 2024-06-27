@@ -1,9 +1,17 @@
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 
 //express app
 const app = express();
 
+//connect to mongodb
+const dbURI =
+  "mongodb+srv://netninja:test1234@cluster0.xyrls2k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+mongoose
+  .connect(dbURI)
+  .then(() => console.log("connected to db"))
+  .catch((err) => console.log(err));
 //register view rngine
 app.set("view engine", "ejs");
 
